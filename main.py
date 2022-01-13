@@ -1,3 +1,4 @@
+from operator import truediv
 import pygame
 import time
 
@@ -6,7 +7,7 @@ from pygame.draw import circle
 
 # screen size 
 WINDOW_W = 900
-WINDOW_H = 505
+WINDOW_H = 500
 WINDOW_SIZE = (WINDOW_W, WINDOW_H)
 
 # BK_COLOR = (205,255,255)
@@ -21,6 +22,7 @@ play = True
 while play:
   # screen.fill(BK_COLOR)
   screen.blit(img,(0,0))
+  #קווים
   # pygame.draw.line(screen, (102,255,178) , [50,100] , [850,100] , 6)
   # pygame.draw.line(screen, (102,255,178) , [50,100] , [50,400] , 6)
   # pygame.draw.line(screen, (102,255,178) , [50,400] , [850,400] , 6)
@@ -29,18 +31,28 @@ while play:
   # for i in range(0,900,30):
     # pygame.draw.line(screen, (102,255,178) , [i,0] , [i,900] , 8)
     # pygame.draw.line(screen, (102,255,178) , [0,i] , [900,i] , 8)
+    #ניסיון
+  # i = 0
+  # for i in range(20):
+  #   Y=0
+  #   X=400
+  #   pygame.draw.line(screen, (244,205,178) , [450,250] , [X,250+Y] , 3)
+  #   pygame.draw.line(screen, (244,205,178), [450,250], [X,250-Y] , 3)
+  #   if i < 10:
+  #     X = X + 10
+  #     Y = Y + 5
+  #   if i >= 10:
+  #     X = X - 10
+  #     Y = Y - 5
+  #עיגול
+  # i = 0
+  # for i in range(0,900,20):
+  #   pygame.draw.circle(screen , (255,51,153) , (450,250) , i + 20 , 5 )
   i = 0
-  for i in range(20):
-    Y=0
-    X=400
-    pygame.draw.line(screen, (244,205,178) , [450,250] , [X,250+Y] , 3)
-    pygame.draw.line(screen, (244,205,178), [450,250], [X,250-Y] , 3)
-    if i < 10:
-      X = X + 10
-      Y = Y + 5
-    if i >= 10:
-      X = X - 10
-      Y = Y - 5
+  m = 0
+  while m == 0:
+    for i in range(250,900,50):
+     pygame.draw.line(screen, (0,0,0), [450,250], [450 + i, 250+i], 5)
   pygame.display.flip()
   for event in pygame.event.get():
     if event.type == pygame.QUIT:
